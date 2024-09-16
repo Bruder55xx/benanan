@@ -452,7 +452,7 @@ class Banana:
                     self.log(f"{red}Get access token error!!!")
 
             print()
-            wait_time = 60 * 60 * 8 
+            wait_time = 60 * 60 * 4 
             self.log(f"{yellow}Wait for {int(wait_time/60)} minutes!")
             time.sleep(wait_time)
 
