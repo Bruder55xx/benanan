@@ -22,15 +22,7 @@ black = Fore.LIGHTBLACK_EX
 blue = Fore.LIGHTBLUE_EX
 white = Fore.LIGHTWHITE_EX
 reset = Style.RESET_ALL
-# Flask application
-app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "Hello World!"
-
-def run_flask():
-    app.run(debug=True)
 # Get the directory where the script is located
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -452,7 +444,7 @@ class Banana:
                     self.log(f"{red}Get access token error!!!")
 
             print()
-            wait_time = 60 * 60 * 4 
+            wait_time = 60 * 60 * 2 
             self.log(f"{yellow}Wait for {int(wait_time/60)} minutes!")
             time.sleep(wait_time)
 
@@ -464,3 +456,14 @@ if __name__ == "__main__":
         banana.main()
     except KeyboardInterrupt:
         sys.exit()
+
+
+# Flask application
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello World!"
+
+def run_flask():
+    app.run(debug=True)
