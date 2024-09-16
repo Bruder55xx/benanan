@@ -6,6 +6,10 @@ from colorama import *
 from datetime import datetime
 import json
 import brotli
+from keep_alive import keep_alive
+import websockets
+from loguru import logger
+from flask import Flask
 
 import cloudscraper
 
@@ -18,7 +22,15 @@ black = Fore.LIGHTBLACK_EX
 blue = Fore.LIGHTBLUE_EX
 white = Fore.LIGHTWHITE_EX
 reset = Style.RESET_ALL
+# Flask application
+app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return "Hello World!"
+
+def run_flask():
+    app.run(debug=True)
 # Get the directory where the script is located
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -448,6 +460,7 @@ class Banana:
 if __name__ == "__main__":
     try:
         banana = Banana()
+        keep_alive()
         banana.main()
     except KeyboardInterrupt:
         sys.exit()
